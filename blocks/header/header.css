@@ -1,0 +1,16 @@
+.header {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  max-width: 880px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 45px 27px 40px;
+  gap: 41px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 28px 0 42px;
+    gap: 32px 0;
+  }
+}

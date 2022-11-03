@@ -1,0 +1,31 @@
+.close-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  overflow: hidden;
+  position: absolute;
+  top: -48px;
+  left: 430px;
+  width: 32px;
+  height: 32px;
+  margin: 8px;
+  padding: 0;
+}
+
+.close-button:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .close-button {
+    width: 20px;
+    height: 20px;
+    top: -36px;
+    left: 262px;
+    margin: 0;
+  }
+}

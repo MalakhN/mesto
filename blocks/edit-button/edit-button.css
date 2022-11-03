@@ -1,0 +1,30 @@
+.edit-button {
+  grid-area: button;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-color: #FFFFFF;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  background: #000000;
+  color: #FFFFFF;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  margin: 15px 0 9px;
+  justify-self: stretch;
+}
+
+.edit-button:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .edit-button {
+    max-width: 18px;
+    max-height: 18px;
+    margin: 9px 0 5px;
+  }
+}

@@ -1,0 +1,27 @@
+.add-button {
+  grid-area: button;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-color: #FFFFFF;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 2px;
+  background: #000000;
+  color: #FFFFFF;
+  padding: 0;
+  min-width: 150px;
+  min-height: 50px;
+  margin: 0;
+}
+
+.add-button:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .add-button {
+    min-width: 282px;
+  }
+}

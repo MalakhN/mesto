@@ -1,0 +1,11 @@
+.close-button__image {
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 768px) {
+  .close-button__image {
+    width: 20px;
+    height: 20px;
+  }
+}
