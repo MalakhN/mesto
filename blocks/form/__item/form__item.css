@@ -6,6 +6,9 @@
   border-width: 1px;
   margin: 0 0 20px;
   padding: 10px 0 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
 }
 
 .form__item:nth-child(2) {
@@ -16,20 +19,4 @@
   outline-color: rgb(128, 171, 244);
   outline-style: solid;
   outline-width: 3px;
- }
-
- .form__item::placeholder {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: #000000;
-  font-family: inherit;
- }
-
- .form__item::-ms-input-placeholder {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: #000000;
-  font-family: inherit;
  }

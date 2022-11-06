@@ -6,3 +6,10 @@
   margin: 0 auto;
   padding-bottom: 40px;
 }
+
+@media (max-width: 768px) {
+  .form__heading {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}

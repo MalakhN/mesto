@@ -6,3 +6,10 @@
   margin: 0;
   padding: 0;
 }
+
+@media (max-width: 910px) {
+  .footer__copyright {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

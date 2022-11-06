@@ -4,4 +4,12 @@
   padding: 0;
   border: none;
   margin: 0;
+  width: 100%;
+  max-width: 358px;
+}
+
+@media (max-width: 768px) {
+  .form__input-container {
+    max-width: 238px;;
+  }
 }

@@ -1,12 +1,13 @@
 .form {
-  width: 358px;
+  width: 100%;
+  max-width: 358px;
   margin: 0 auto;
   padding: 34px 36px 37px;
 }
 
 @media (max-width: 768px) {
   .form {
-    width: 238px;
+    max-width: 238px;
     padding: 25px 22px;
   }
 }
