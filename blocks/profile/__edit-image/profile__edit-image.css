@@ -1,9 +1,9 @@
-.profile__edit-button__image {
+.profile__edit-image {
   width: 10px;
 }
 
 @media (max-width: 768px) {
-  .profile__edit-button__image {
+  .profile__edit-image {
     width: 7.5px;
   }
 }

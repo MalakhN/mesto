@@ -16,6 +16,7 @@
 
 .form__save-button:hover {
   opacity: 80%;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
