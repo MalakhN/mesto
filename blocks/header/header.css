@@ -9,3 +9,8 @@
   box-sizing: border-box;
 }
 
+@media (max-width: 1024px) {
+  .header {
+    margin: 28px auto 42px;
+  }
+}
