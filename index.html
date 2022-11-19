@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
-    <div class="popup">
+    <!-- Попап редактирования профиля -->
+    <div class="popup" id="edit-profile">
       <div class="popup__container">
-        <button class="popup__close-button" type="button"><img class="popup__close-image" src="./images/Close-Icon.svg" alt="Иконка"></button>
-        <form class="form" name="profile">
+        <button class="popup__close-button" type="button"></button>
+        <form class="form" name="profile" id="edit-form">
           <h3 class="form__heading">Редактировать профиль</h3>
           <fieldset class="form__input-container">
             <input type="text" class="form__item" name="name" id="name" value="Жак-Ив Кусто">
@@ -20,67 +21,64 @@
         </form>
       </div>
     </div>
+    <!-- Попап добавления карточки -->
+    <div class="popup" id="add-card">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <form class="form" name="cards" id="cards-form">
+          <h3 class="form__heading">Новое место</h3>
+          <fieldset class="form__input-container">
+            <input type="text" class="form__item" name="card-name" id="card-name" placeholder="Название">
+            <input type="text" class="form__item" name="card-link" id="card-link" placeholder="Ссылка на картинку">
+            <button type="submit" class="form__save-button">Сохранить</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <!-- Попап предпросмотра изображения карточки -->
+    <div class="popup popup__image" id="popup-image">
+      <div class="popup__image-container">
+        <button class="popup__close-button" type="button"></button>
+        <img class="popup__image-image" src="" alt="">
+        <p class="popup__image-text"></p>
+      </div>
+    </div>
+    <!-- Хедер -->
     <header class="header">
       <img class="header__logo" src="./images/logo.svg" alt="Mesto Россия">
     </header>
+    <!-- Основной контент -->
     <main class="content">
+      <!-- Информация профиля -->
       <section class="profile">
         <img class="profile__image" src="./images/Avatar.png" alt="Жак-Ив Кусто">
         <div class="profile__information">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <h2 class="profile__description">Исследователь океана</h2>
-          <button class="profile__edit-button" type="button"></button>
+          <button class="profile__edit-button" id="#open-button" type="button"></button>
         </div>
-        <button class="profile__add-button" type="button"><img class="profile__add-image" src="./images/Vector-add-button.png" alt="Иконка"></button>
+        <button class="profile__add-button" id="#open-button" type="button"><img class="profile__add-image" src="./images/Vector-add-button.png" alt="Иконка"></button>
       </section>
+      <!-- Доавленные карточки -->
       <section class="elements">
-        <div class="element">
-          <img class="element__image" src="./images/Karachayevsk.png" alt="Карачаевск">
-          <div class="element__text">
-            <h2 class="element__title">Карачаевск</h2>
-            <button class="element__icon" type="button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/Elbrus.png" alt="Гора Эльбрус">
-          <div class="element__text">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button class="element__icon" type="button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/Dombay.png" alt="Домбай">
-          <div class="element__text">
-            <h2 class="element__title">Домбай</h2>
-            <button class="element__icon" type="button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/Elbrus.png" alt="Гора Эльбрус">
-          <div class="element__text">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button class="element__icon" type="button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/Dombay.png" alt="Домбай">
-          <div class="element__text">
-            <h2 class="element__title">Домбай</h2>
-            <button class="element__icon" type="button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/Karachayevsk.png" alt="Карачаево-Черкесия">
-          <div class="element__text">
-            <h2 class="element__title">Карачаево-Черкесия</h2>
-            <button class="element__icon" type="button"></button>
-          </div>
-        </div>
       </section>
     </main>
+    <!-- Шаблон добавления карточек -->
+    <template id="cards-template">
+      <div class="element">
+        <button class="element__delete-icon" type="button"></button>
+        <img class="element__image" src="" alt="">
+        <div class="element__text">
+          <h2 class="element__title"></h2>
+          <button class="element__icon" type="button"></button>
+        </div>
+      </div>
+    </template>
+    <!-- Футер -->
     <footer class="footer">
       <p class="footer__copyright"> &copy; 2022. Наташа Малахова</p>
     </footer>
+    <!-- Подключение JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>

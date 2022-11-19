@@ -7,12 +7,13 @@
   border: none;
   overflow: hidden;
   position: absolute;
-  top: -48px;
-  left: 430px;
+  right: -50px;
+  top: -50px;
   width: 32px;
   height: 32px;
   margin: 8px;
   padding: 0;
+  background-image: url(../../../images/Close-Icon.svg);
 }
 
 .popup__close-button:hover {
