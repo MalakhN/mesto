@@ -43,6 +43,7 @@ const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 const closeButtons = document.querySelectorAll('.popup__close-button');
 const popupImagePreview = document.querySelector('.popup__image-image');
+const popupImagePreviewText = document.querySelector('.popup__image-text');
 
 // Функция открытия попапов
 function openPopup (popupItem) {
@@ -79,7 +80,7 @@ function createCard(element) {
     popupImage.classList.add('popup_opened');
     popupImagePreview.src = element.link;
     popupImagePreview.alt = element.name;
-    document.querySelector('.popup__image-text').textContent = element.name;
+    popupImagePreviewText.textContent = element.name;
   });
   return cardsElement;
 }
@@ -105,7 +106,7 @@ function handleCardFormSubmit (evt) {
   newPlace.name = namePlace;
   newPlace.link = linkPlace;
   prependCard(newPlace);
-  addCardPopup.classList.remove('popup_opened');
+  closePopup(addCardPopup);
   addCardForm.reset();
 };
 
