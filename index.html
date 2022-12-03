@@ -11,11 +11,13 @@
     <div class="popup" id="edit-profile">
       <div class="popup__container">
         <button class="popup__close-button" type="button"></button>
-        <form class="form" name="profile" id="edit-form">
+        <form class="form" name="profile" id="edit-form" novalidate>
           <h3 class="form__heading">Редактировать профиль</h3>
           <fieldset class="form__input-container">
-            <input type="text" class="form__item" name="name" id="name">
-            <input type="text" class="form__item" name="description" id="description">
+            <input type="text" class="form__item" name="name" id="name" placeholder="Имя" minlength="2" maxlength="40" required>
+            <span class="form__input-error name-error"></span>
+            <input type="text" class="form__item" name="description" id="description" placeholder="О себе" minlength="2" maxlength="200" required>
+            <span class="form__input-error description-error"></span>
             <button type="submit" class="form__save-button">Сохранить</button>
           </fieldset>
         </form>
@@ -25,11 +27,13 @@
     <div class="popup" id="add-card">
       <div class="popup__container">
         <button class="popup__close-button" type="button"></button>
-        <form class="form" name="cards" id="cards-form">
+        <form class="form" name="cards" id="cards-form" novalidate>
           <h3 class="form__heading">Новое место</h3>
           <fieldset class="form__input-container">
-            <input type="text" class="form__item" name="card-name" id="card-name" placeholder="Название">
-            <input type="text" class="form__item" name="card-link" id="card-link" placeholder="Ссылка на картинку">
+            <input type="text" class="form__item" name="card-name" id="card-name" placeholder="Название" minlength="2" maxlength="30" required>
+            <span class="form__input-error card-name-error"></span>
+            <input type="url" class="form__item" name="card-link" id="card-link" placeholder="Ссылка на картинку" required>
+            <span class="form__input-error card-link-error"></span>
             <button type="submit" class="form__save-button">Сохранить</button>
           </fieldset>
         </form>
@@ -80,5 +84,6 @@
     </footer>
     <!-- Подключение JavaScript -->
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

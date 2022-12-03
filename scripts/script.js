@@ -48,11 +48,31 @@ const popupImagePreviewText = document.querySelector('.popup__image-text');
 // Функция открытия попапов
 function openPopup (popupItem) {
   popupItem.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
+  popupItem.addEventListener('click', closePopupOverlay);
 }
 
 // Функция закрытия попапов
 function closePopup(popupItem) {
   popupItem.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc);
+  popupItem.removeEventListener('click', closePopupOverlay);
+}
+
+// Функция закрытия попапов при нажатии Esc
+function closePopupEsc(evt) {
+  if (evt.key === 'Escape') {
+    const popupOpened = document.querySelector('.popup_opened');
+    closePopup(popupOpened);
+  }
+}
+
+// Функция закрытия попапов при клике на оверлей
+function closePopupOverlay(evt) {
+  if (evt.target === evt.currentTarget) {
+    const popupOpened = document.querySelector('.popup_opened');
+    closePopup(popupOpened);
+  }
 }
 
 // Функция отправки формы редактирования профиля
@@ -77,7 +97,7 @@ function createCard(element) {
     evt.target.closest('.element').remove();
   });
   elementImage.addEventListener('click', function () {
-    popupImage.classList.add('popup_opened');
+    openPopup (popupImage);
     popupImagePreview.src = element.link;
     popupImagePreview.alt = element.name;
     popupImagePreviewText.textContent = element.name;
@@ -126,7 +146,7 @@ addButton.addEventListener('click', () => openPopup(addCardPopup));
 // Слушаем отправку формы добавления карточек
 addCardForm.addEventListener('submit', handleCardFormSubmit);
 
-// Закрываем попапы
+// Закрываем попапы при нажатии на крестик
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
