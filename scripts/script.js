@@ -70,8 +70,7 @@ function closePopupEsc(evt) {
 // Функция закрытия попапов при клике на оверлей
 function closePopupOverlay(evt) {
   if (evt.target === evt.currentTarget) {
-    const popupOpened = document.querySelector('.popup_opened');
-    closePopup(popupOpened);
+    closePopup(evt.target);
   }
 }
 
