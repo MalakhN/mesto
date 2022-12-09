@@ -44,6 +44,7 @@ const profileDescription = document.querySelector('.profile__description');
 const closeButtons = document.querySelectorAll('.popup__close-button');
 const popupImagePreview = document.querySelector('.popup__image-image');
 const popupImagePreviewText = document.querySelector('.popup__image-text');
+const cardsSubmitButton = document.querySelector('#cards-submit-button');
 
 // Функция открытия попапов
 function openPopup (popupItem) {
@@ -127,6 +128,7 @@ function handleCardFormSubmit (evt) {
   prependCard(newPlace);
   closePopup(addCardPopup);
   addCardForm.reset();
+  disableButton(cardsSubmitButton, settingsData);
 };
 
 // Открываем попап редактирования профиля
@@ -140,7 +142,9 @@ editButton.addEventListener('click', function () {
 editForm.addEventListener('submit', handleProfileFormSubmit);
 
 // Открываем попап добавления карточек
-addButton.addEventListener('click', () => openPopup(addCardPopup));
+addButton.addEventListener('click', function () {
+  openPopup(addCardPopup);
+});
 
 // Слушаем отправку формы добавления карточек
 addCardForm.addEventListener('submit', handleCardFormSubmit);
