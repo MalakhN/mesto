@@ -133,7 +133,7 @@ function handleCardFormSubmit(evt) {
   evt.preventDefault();
   createCard(
     { name: cardNameInput.value, link: cardLinkInput.value },
-    "#element-template",
+    "#cards-template",
     popupImage,
     popupImagePreview,
     popupImagePreviewText,

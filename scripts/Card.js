@@ -29,7 +29,7 @@ export default class Card {
   _setData() {
     const imageElement = this._newCard.querySelector(".element__image");
     imageElement.src = this._link;
-    const titleElement = this._newCard.querySelector(".element__text");
+    const titleElement = this._newCard.querySelector(".element__title");
     titleElement.textContent = this._name;
   }
 
@@ -57,7 +57,7 @@ export default class Card {
   // Приватный метод для всех слушателей карточки
   _setEventListeners() {
     this._newCard
-      .querySelector(".element__text")
+      .querySelector(".element__icon")
       .addEventListener("click", () => {
         this._handleLikeCard();
       });
