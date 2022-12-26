@@ -1,11 +1,12 @@
 .form__input-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 0;
-  border: none;
   margin: 0;
   width: 100%;
   max-width: 358px;
+  min-height: 259px;
 }
 
 @media (max-width: 768px) {
