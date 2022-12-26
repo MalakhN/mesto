@@ -1,7 +1,7 @@
 // Импорт
-import { FormValidator as FormValidator } from "./FormValidator.js";
-import { settingsData } from "./FormValidator.js";
+import { FormValidator, settingsData } from "./FormValidator.js";
 import Card from "./Card.js";
+import { initialCards } from "./constants.js";
 
 // Переменные
 const editForm = document.querySelector("#edit-form");
@@ -18,7 +18,6 @@ const jobInput = document.querySelector("#description");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 const closeButtons = document.querySelectorAll(".popup__close-button");
-const cardsSubmitButton = document.querySelector("#cards-submit-button");
 const popupImage = document.querySelector("#popup-image");
 const popupImagePreview = popupImage.querySelector(".popup__image-image");
 const popupImagePreviewText = popupImage.querySelector(".popup__image-text");
@@ -29,34 +28,6 @@ editFormValidator.enableValidation();
 
 const addFormValidator = new FormValidator(settingsData, addCardForm);
 addFormValidator.enableValidation();
-
-// Массив карточек
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
 
 // Функция открытия попапов
 function openPopup(popupItem) {
@@ -70,6 +41,9 @@ function closePopup(popupItem) {
   popupItem.classList.remove("popup_opened");
   document.removeEventListener("keydown", closePopupEsc);
   popupItem.removeEventListener("click", closePopupOverlay);
+  addCardForm.reset();
+  addFormValidator.resetValidation();
+  editFormValidator.resetValidation();
 }
 
 // Функция закрытия попапов при нажатии Esc
@@ -77,6 +51,9 @@ function closePopupEsc(evt) {
   if (evt.key === "Escape") {
     const popupOpened = document.querySelector(".popup_opened");
     closePopup(popupOpened);
+    addCardForm.reset();
+    addFormValidator.resetValidation();
+    editFormValidator.resetValidation();
   }
 }
 
@@ -84,6 +61,9 @@ function closePopupEsc(evt) {
 function closePopupOverlay(evt) {
   if (evt.target === evt.currentTarget) {
     closePopup(evt.target);
+    evt.target.reset();
+    addFormValidator.resetValidation();
+    editFormValidator.resetValidation();
   }
 }
 
@@ -140,8 +120,7 @@ function handleCardFormSubmit(evt) {
     openPopup
   );
   addCardForm.reset();
-  cardsSubmitButton.classList.add(settingsData.inactiveButtonClass);
-  cardsSubmitButton.setAttribute("disabled", "true");
+  addFormValidator.resetValidation();
   closePopup(addCardPopup);
 }
 

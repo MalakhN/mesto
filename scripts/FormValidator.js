@@ -10,13 +10,13 @@ export const settingsData = {
 
 // Класс валидации форм
 export class FormValidator {
-  constructor(obj, formElement) {
-    this._formSelector = obj.formSelector;
-    this._inputSelector = obj.inputSelector;
-    this._submitButtonSelector = obj.submitButtonSelector;
-    this._inactiveButtonClass = obj.inactiveButtonClass;
-    this._inputErrorClass = obj.inputErrorClass;
-    this._errorClass = obj.errorClass;
+  constructor(validationConfig, formElement) {
+    this._formSelector = validationConfig.formSelector;
+    this._inputSelector = validationConfig.inputSelector;
+    this._submitButtonSelector = validationConfig.submitButtonSelector;
+    this._inactiveButtonClass = validationConfig.inactiveButtonClass;
+    this._inputErrorClass = validationConfig.inputErrorClass;
+    this._errorClass = validationConfig.errorClass;
     this._formElement = formElement;
     this._inputList = Array.from(
       this._formElement.querySelectorAll(this._inputSelector)
@@ -68,7 +68,7 @@ export class FormValidator {
     this._buttonElement.setAttribute("disabled", true);
   }
 
-  // Приватный метод зазблокировки кнопок "Отправить"
+  // Приватный метод разблокировки кнопок "Отправить"
   _enableButton() {
     this._buttonElement.classList.remove(this._inactiveButtonClass);
     this._buttonElement.removeAttribute("disabled", false);
