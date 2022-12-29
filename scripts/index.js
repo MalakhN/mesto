@@ -93,12 +93,16 @@ const createCard = (
     openPopup
   );
   const cardElement = card.generateCard();
-  cards.prepend(cardElement);
+  return cardElement;
 };
+
+const addCard = (el) => {
+  cards.prepend(el);
+}
 
 // Перебор массива с карточками
 initialCards.forEach((item) => {
-  createCard(
+  const newCard = createCard(
     item,
     "#cards-template",
     popupImage,
@@ -106,12 +110,13 @@ initialCards.forEach((item) => {
     popupImagePreviewText,
     openPopup
   );
+  addCard(newCard);
 });
 
 // Функция отправки формы добавления карточек
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  createCard(
+  const newCard = createCard(
     { name: cardNameInput.value, link: cardLinkInput.value },
     "#cards-template",
     popupImage,
@@ -119,6 +124,7 @@ function handleCardFormSubmit(evt) {
     popupImagePreviewText,
     openPopup
   );
+  addCard(newCard);
   addCardForm.reset();
   addFormValidator.resetValidation();
   closePopup(addCardPopup);
